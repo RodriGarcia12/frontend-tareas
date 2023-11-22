@@ -14,7 +14,7 @@ class TaskController extends Controller
 
     private function sendGet(){
         return Http::withHeaders($this -> requestHeaders) 
-            -> get(getenv("API_TASKS_URL"));
+            -> get("API_TASKS_URL");
     }
     private function sendGetOne($id){
         return Http::withHeaders($this -> requestHeaders) 
@@ -27,7 +27,7 @@ class TaskController extends Controller
 
     private function sendPost($data){
         return Http::withHeaders($this -> requestHeaders) 
-            -> post(getenv("API_TASKS_URL"), $data);
+            -> post(getenv("API_TASKS_URL") . $data);
     }
 
     public function Read(Request $request){
