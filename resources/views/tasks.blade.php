@@ -11,11 +11,11 @@
 @endif
 
 
-@foreach($tasks as $t)
-    <a href="/task/{{ $t['id'] }}">{{ $t['id'] }}</a> 
-    {{ Str::title($t['title'])}}
+@foreach($tasks as $task)
+    <a href="/task/{{ $task['id'] }}">{{ $task['id'] }}</a> 
+    {{ Str::title($task['title'])}}
        
-    {{ $t['body']}}
-    <a href="/deleteTask/{{ $t['id'] }}">Eliminar</a>
+    {{ $task['body']}}
+    <a href="/deleteTask/{{ $task['id'] }}">Eliminar</a>
        
 @endforeach
