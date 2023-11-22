@@ -23,6 +23,6 @@ Route::get("/createTask", function () {
 });
 Route::post("/createTask",[TaskController::class,"Create"]);
 
-Route::get("/tasks",[TaskController::class,"Read"]);
+Route::get("/task",[TaskController::class,"Read"]);
 Route::get("/task/{d}",[TaskController::class,"GetTask"]);
 Route::get("/deleteTask/{d}",[TaskController::class,'Delete']);
