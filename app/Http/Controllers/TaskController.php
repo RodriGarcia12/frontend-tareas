@@ -14,7 +14,7 @@ class TaskController extends Controller
 
     private function sendGet(){
         return Http::withHeaders($this -> requestHeaders) 
-            -> get("API_TASKS_URL");
+            -> get(getenv("API_TASKS_URL"));
     }
     private function sendGetOne($id){
         return Http::withHeaders($this -> requestHeaders) 
@@ -89,10 +89,9 @@ class TaskController extends Controller
         try{
             $response = $this -> sendDelete($idTask);
             if(
-                $response -> successful() && 
-                json_decode($response->body(),true)['message'] === "Deleted"
+                $response -> successful() && json_decode($response->body(),true)['message'] === "Deleted"
             ){
-                return redirect("/tasks")
+                return redirect("/task")
                     ->with("eliminado",$idTask);
             }
         }

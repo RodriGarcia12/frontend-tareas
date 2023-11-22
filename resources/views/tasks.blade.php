@@ -12,8 +12,7 @@
 
 
 @foreach($tasks as $task)
-    <a href="/task/{{ $task['id'] }}">{{ $task['id'] }}</a> 
-    {{ Str::title($task['title'])}}
+    <a href="/task/{{ $task['id'] }}"><h3>{{ Str::title($task['title'])}} (ID: {{ $task['id'] }})</h3></a> 
        
     {{ $task['body']}}
     <a href="/deleteTask/{{ $task['id'] }}">Eliminar</a>
