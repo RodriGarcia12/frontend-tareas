@@ -1,7 +1,7 @@
 <h1>Tareas</h1>
 
 
-<a href="/createTask">Crear tarea</a> <br><br>
+<a href="/createTask">Crear tarea</a> | <a href="/registerUser">Registrarse</a> <br><br>
 
 @if(session("task"))
     Task <b>"{{ session("task")['nombre'] }}"</b> creada. <br>
@@ -14,9 +14,9 @@
 @foreach($tasks as $task)
     <a href="/task/{{ $task['id'] }}"><h3>{{ Str::title($task['title'])}} (ID: {{ $task['id'] }})</h3></a> 
        
-    {{ $task['body']}}
+    {{$task['body']}}
 
-    {{ $task['author_id']}}
+    {{$task['author_id']}}
     <a href="/deleteTask/{{ $task['id'] }}">Eliminar</a>
        
 @endforeach
