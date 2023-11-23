@@ -15,6 +15,8 @@
     <a href="/task/{{ $task['id'] }}"><h3>{{ Str::title($task['title'])}} (ID: {{ $task['id'] }})</h3></a> 
        
     {{ $task['body']}}
+
+    {{ $task['author_id']}}
     <a href="/deleteTask/{{ $task['id'] }}">Eliminar</a>
        
 @endforeach
