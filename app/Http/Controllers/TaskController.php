@@ -27,7 +27,7 @@ class TaskController extends Controller
 
     private function sendPost($data){
         return Http::withHeaders($this -> requestHeaders) 
-            -> post(getenv("API_TASKS_URL") . $data);
+            -> post(getenv("API_TASKS_URL"), $data);
     }
 
     public function Read(Request $request){
@@ -69,11 +69,11 @@ class TaskController extends Controller
                     "title" => $request -> post("title"),
                     "body" => $request -> post("body"),
                     "author_id" => $request -> post('authorId'),
-                    "user_assigned_id" => $request -> post('userAssignedId')
+                    "user_assigned_id" => $request -> post('userAssignedId'),
             ]);
             if($response -> successful()){
                 $task = json_decode($response->body(),true);
-                return redirect("/tasks")->with("task",$task);
+                return redirect("/task")->with("task",$task);
             }
         }
 
