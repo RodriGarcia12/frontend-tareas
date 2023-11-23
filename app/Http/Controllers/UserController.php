@@ -12,14 +12,9 @@ class UserController extends Controller
         "Accept" => "application/json",
     ];
 
-    private function sendPost($data){
-        return Http::withHeaders($this -> requestHeaders) 
-            -> post(getenv("http://localhost:8001/api/v1/register/"), $data);
-    }
-
     public function Register(Request $request){
         try {
-            $response = Http::get("http://localhost:8001/api/v1/register/", [
+            $response = Http::post("http://localhost:8001/api/v1/register/", [
                     "name" => $request -> post("name"),
                     "email" => $request -> post("email"),
                     "password" => $request -> post('password'),
