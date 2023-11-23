@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,16 @@ Route::get("/createTask", function () {
     return view("createTask");
 });
 Route::post("/createTask",[TaskController::class,"Create"]);
+
+Route::get("/loginUser", function () {
+    return view("loginUser");
+});
+Route::post("/loginUser",[UserController::class,"Login"]);
+
+Route::get("/registerUser", function () {
+    return view("registerUser");
+});
+Route::post("/registerUser",[UserController::class,"Register"]);
 
 Route::get("/task",[TaskController::class,"Read"]);
 Route::get("/task/{d}",[TaskController::class,"GetTask"]);
