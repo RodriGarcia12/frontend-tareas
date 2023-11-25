@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function Register(Request $request){
         try {
-            $response = Http::post("http://localhost:8001/api/v1/register/", [
+            $response = Http::post("http://oauth.tasks-namespace.svc.cluster.local/api/v1/register/", [
                     "name" => $request -> post("name"),
                     "email" => $request -> post("email"),
                     "password" => $request -> post('password'),
